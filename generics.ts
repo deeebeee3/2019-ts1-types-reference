@@ -52,3 +52,38 @@ printAnything<string>(['a', 'b', 'c']);
 
 //type inference, hover over printAnything - ts will figure out that <T> must be string
 printAnything(['a', 'b', 'c']);
+
+//-----------Generic constraints-----------
+
+class Car {
+  print() {
+    console.log('I am a car');
+  }
+}
+
+class House {
+  print() {
+    console.log('I am a house');
+  }
+}
+
+interface Printable {
+  print(): void;
+}
+
+//generic constraint - limit the types we can pass in for <T>
+//the type we pass in must have all the properties that Printable has - i.e. the print() method
+function printHousesOrCars<T extends Printable>(arr: T[]): void {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].print();
+  }
+}
+
+//number is not assignable to type Printable - in other words number does not have print() method
+printHousesOrCars([1, 2, 3, 4]);
+
+//pass in an array with a house and a car - no errors here, because house and car have print() method on them
+printHousesOrCars<House>([new House(), new House()]);
+printHousesOrCars<Car>([new Car(), new Car()]);
+
+printHousesOrCars<House | Car>([new House(), new Car()]);

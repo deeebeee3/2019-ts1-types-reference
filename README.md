@@ -13,3 +13,7 @@ node index.js
 //ts-node combines above two commands into one
 
 ts-node index.ts
+
+//Decorators
+1) Uncomment / enable in tsconfig.
+2) at terminal type: 'ts-node decorators.ts' to run the file...

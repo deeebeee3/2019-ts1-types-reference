@@ -1,18 +1,22 @@
 class Boat {
 
-  //property
-  color: string = 'red';
+  @testDecorator
+  color: string = 'red'; //property
 
-  get formattedColor(): string {
+  get formattedColor(): string { //accessor
     return `This boats color is ${this.color}`;
   }
 
   @logError('Oops boat was sunk in ocean')
-  //accessor
-  pilot(): void {
+  pilot(): void { //method
     throw new Error();
     console.log('swish');
   }
+}
+
+function testDecorator(target: any, key: string) {
+  console.log(target);
+  console.log(key);
 }
 
 function logError(errorMessage: string) {
@@ -28,8 +32,5 @@ function logError(errorMessage: string) {
     }
   }
 }
-
-
-new Boat().pilot();
 
 //get at a function and wrap it with some additional functionality...

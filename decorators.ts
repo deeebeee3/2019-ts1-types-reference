@@ -7,7 +7,7 @@ class Boat {
     return `This boats color is ${this.color}`;
   }
 
-  @logError
+  @logError('Oops boat was sunk in ocean')
   //accessor
   pilot(): void {
     throw new Error();
@@ -15,21 +15,21 @@ class Boat {
   }
 }
 
-//method
-function logError(target: any, key: string, descriptor: PropertyDescriptor): void {
-  const method = descriptor.value;
+function logError(errorMessage: string) {
+  return function (target: any, key: string, descriptor: PropertyDescriptor): void {
+    const method = descriptor.value;
 
-  descriptor.value = function () {
-    try {
-      method();
-    } catch (e) {
-      console.log('Oops, Boat was sunk');
+    descriptor.value = function () {
+      try {
+        method();
+      } catch (e) {
+        console.log(errorMessage);
+      }
     }
   }
 }
 
 
 new Boat().pilot();
-
 
 //get at a function and wrap it with some additional functionality...

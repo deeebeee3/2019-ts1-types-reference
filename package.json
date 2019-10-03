@@ -1,0 +1,23 @@
+{
+  "name": "2019-ts1-types-reference",
+  "version": "1.0.0",
+  "description": "Defining types and annotations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deeebeee3/2019-ts1-types-reference.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deeebeee3/2019-ts1-types-reference/issues"
+  },
+  "homepage": "https://github.com/deeebeee3/2019-ts1-types-reference#readme",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  }
+}

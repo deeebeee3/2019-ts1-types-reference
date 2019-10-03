@@ -15,5 +15,13 @@ node index.js
 ts-node index.ts
 
 //Decorators
-1) Uncomment / enable in tsconfig.
-2) at terminal type: 'ts-node decorators.ts' to run the file...
+1) tsc --init
+2) Uncomment / enable in tsconfig at bottom.
+3) at terminal type: 'ts-node decorators.ts' to run the file...
+
+//Metadata
+1) Uncomment / enable in tsconfig at bottom.
+2) npm init -y
+3) npm install reflect-metadata --save
+
+https://www.typescriptlang.org   :)

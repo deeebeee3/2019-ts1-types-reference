@@ -1,6 +1,10 @@
 @classDecorator
 class Boat {
 
+  /*   we can't get access to PROPERTIES with a decorator because 
+    1) the decorator is executed before we create an instance
+    2) properties are only initialized when instance of class created in the constructor function
+    3) the only argument we get to our decorator is the prototype - in the target param */
   @testDecorator
   color: string = 'red'; //property
 
